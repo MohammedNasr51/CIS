@@ -474,7 +474,46 @@ echo "<br>";
 var_dump(100<=>100);
 echo "<br>";
 echo "<br>";
-#======================================================================
+#==========================================================================
+//Increment and Decriment operator
+$first=0;
+echo $first;
+echo '<br>';
+echo $first++ ;
+echo '<br>';
+echo $first;
+echo '<br>';
+echo ++$first; 
+echo '<br>';
+echo $first;
+echo '<br>';
+echo '<br>';
+#==========================================================================
+/*
+Operators
+- Used To Perform Operations On Values.
+
+Logical Operators
+- Compare Conditions
+
+and => And => Two Are True
+&&  => And => Two Are True ["&&" Has A Greater Precedence Than "and"]
+or  => Or  => One Or Both Is True
+||  => Or  => One Or Both Is True ["||" Has A Greater Precedence Than "or"]
+xor => Xor => One Is True But Not Both
+!   => Not => Not True
+*/
+#===========================================================================
+  /*
+    Operators
+    - Used To Perform Operations On Values.
+
+    String Operators
+    - Concatenate Strings
+
+    .   => concatenate variables with text 
+    .=  => concatenates the variable's value with the value after operator
+  */
 
 echo '<br>';
 echo '<br>';
