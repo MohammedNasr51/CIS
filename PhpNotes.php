@@ -748,6 +748,7 @@ continue => skips the current iteration
   # require("test.text"); // gives me Fatal error and skip all other script because the file is required
 
   include_once("test.php"); // $a = 10;  gives me warning but continue the script 
+                            // include_once => chick that if i includes this file befor it dosen't inclede it again 
 
   echo $f . '<br>';
 
