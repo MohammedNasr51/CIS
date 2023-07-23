@@ -514,17 +514,244 @@ xor => Xor => One Is True But Not Both
     .   => concatenate variables with text 
     .=  => concatenates the variable's value with the value after operator
   */
+#==========================================================================
+//array operators 
+/*
+  Operators
+  - Used To Perform Operations On Values.
+
+  Array Operators
+  - Deal With Arrays
+
+  +     => Union
+  ==    => Equal => Same Key And Value
+  !=    => Not Equal
+  <>    => Not Equal
+  ===   => Identical => Same Key And Value, Same Order, Same Type
+  !==   => Not Identical
+*/
+$arr1 = ["a" => 1, "b" => 2];
+$arr3 = ["a" => '1', "b" => '2'];
+$arr4 = ["a" => 1, "b" => 2];
+$arr2 = ["c" => 3, "d" => 4];
+echo '<pre>';
+print_r($arr1 + $arr2);
+echo '</pre>';
+var_dump($arr1 == $arr3); //althow 1 is int and '1' is string
+echo '<br>';
+var_dump($arr1 === $arr4);
+echo '<br>';
+var_dump($arr1 != $arr2);
+echo '<br>';
+echo '<br>';
+#==========================================================================
+//Error control operator
+/*
+  Operators
+  - Used To Perform Operations On Values.
+
+  Error Control Operator
+  - Control The Errors
+
+  @
+  - Variable
+  - File
+  - Include
+*/
+
+// Variable 
+$a = 10;
+$b = @$a or die("Variable Not Found"); //it's prevent showing the error and
+// die => give the ability to write 
+//a masage instead of the error 
+echo "Test $b";
+echo '<br>';
+
+// File
+$f = @file("osama.txt") or die("File Not Found");
+echo '<pre>';
+print_r($f);
+echo '</pre>';
+echo '<br>';
+
+// Include
+//(@include("osama_elzero.php")) or die("Include File Not Found"); //i commented it because it neglect the script after it
+echo '<br>';
+echo '<br>';
+#===========================================================================
+//Operator Precedence
+/*
+  Operators
+  - Used To Perform Operations On Values.
+
+  Operator Precedence
+  - "||" Has A Greater Precedence Than "or"
+  - "&&" Has A Greater Precedence Than "and"
+*/
+$a = 10 || false; // $a = (10 || false) => $a = 1
+echo $a; // 1
 
 echo '<br>';
+
+$b = 10 or false; // ($b = 10) or false
+echo $b; // 10
 echo '<br>';
 echo '<br>';
+#===========================================================================
+//if and elseif 
+if (10 < 5) {
+  echo 10 > 5 || "hello\n";
+} elseif (11 > 12) {
+  echo "the second condition is true\n";
+} else {
+  echo nl2br("nothing\n");
+}
+if (10 < 5):
+  echo 10 > 5 || "hello\n";
+elseif (11 > 12):
+  echo "the second condition is true\n";
+else:
+  echo "nothing";
+endif;
 echo '<br>';
 echo '<br>';
+/*
+  Control Structure
+  - Ternary Operator => Short If
+  (condition ? whileTrue : whileFalse) and it can be used with concatenate
+*/
+$c = 11;
+$d = 12;
+echo "I love PHP because it is a " . ($c <> $d ? "good" : "bad") . " Language";
+echo '<br>';
+$result = ($c <> $d ? "good" : "bad");
+echo '<br>';
+echo "I love PHP because it is a " . $result . " Language";
 echo '<br>';
 echo '<br>';
+#=======================================================================================
+//Switch
+/*
+  Control Structure
+  - Switch
+
+  Syntax
+  switch (expression) {
+    Case 1:
+      // Code Block 1
+      break;
+    Case 2:
+      // Code Block 2
+      break;
+    Case 3:
+      // Code Block 3
+      break;
+    Default:
+      // Default Code Block
+  }
+*/
+#==============================================================================================
+//While loop
+/*
+$i=0; => first we declare and initialise the counter
+
+while(condition){
+  block of code ; 
+  increment or decrement i++ || i-- ; "the counter"
+} 
+
+while ($a <= 3) :
+
+    echo "$a<br>";
+
+    $a++;
+
+  endwhile;
+*/
+
+//Do While loop
+/*
+do{
+block of code ;
+increment or decrement i++ || i-- ; "the counter"
+}while(condition)
+
+The only difference between them that dowhile will execute the first iteration then check the condetion
+*/
+
+#==============================================================
+//For loop
+for($i=0 ; $i<5 ; $i++ ):
+  for($j=0;$j<$i;$j++):
+    echo '* ';
+  endfor;
+  echo '<br>';
+endfor;
 echo '<br>';
 echo '<br>';
+#==============================================================
+//Foreach loop
+/*
+  if i have an array i can use foreach 
+
+  1-  foreach(element as values){
+        echo valuese . "<br>";
+  }
+
+  2-  foreach(element as key => value) :       
+        echo key value ;
+        endforeach;
+
+*/
+$countries = ["EG", "SA", "QA", "SY"];
+
+echo '<pre>';
+print_r($countries);
+echo '</pre>';
+
+foreach ($countries as $country) {
+
+  echo $country . "<br>";
+
+}
+
+$countries_with_discount = ["EG" => 50, "SA" => 30, "QA" => 50, "SY" => 70];
+
+echo '<pre>';
+print_r($countries_with_discount);
+echo '</pre>';
+
+foreach ($countries_with_discount as $country => $discount) :
+
+  echo "Country Name Is $country And Discount Is $discount <br>";
+
+endforeach;
 echo '<br>';
 echo '<br>';
+#=======================================================================
+/*
+The difference between break and continue that
+break => left the loop
+continue => skips the current iteration
+*/
+#=========================================================================
+// Include, Require
+/*
+    Control Structure
+    - Including Files
+
+    Include 
+    Require
+  */
+  $f = 20;
+  # require("test.text"); // gives me Fatal error and skip all other script because the file is required
+
+  include_once("test.php"); // $a = 10;  gives me warning but continue the script 
+
+  echo $f . '<br>';
+
+  echo "Continue";
 echo '<br>';
+echo '<br>';
+
 ?>
