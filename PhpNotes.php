@@ -755,5 +755,276 @@ continue => skips the current iteration
   echo "Continue";
 echo '<br>';
 echo '<br>';
+#===============================================================  
+//Function Default Parameter Value
+
+/*
+  Function
+  - Default Parameter Value
+  --- Using
+  --- Test Data
+  --- Skip Arguments
+
+
+  1-  function function_name($arg1, $arg2 = "default"){
+        // code block
+  }
+****you can't skip initializing the first parameter value
+***you can skip any parameter value if you gave it a default value
+**you con chose the parameter you want to initialize by type the parameter name and 
+put " : " and then type the value 
+
+*/
+
+function get_data($country = "Private Country", $name = "Private", $age = "Private", $address = "Private Address")
+{
+  // if ($address === "") {
+  //   $address = "Private Address";
+  // }
+  $line_one = "Your Country Is $country And Your Name Is $name <br>";
+  $line_two = "Your Age Is $age And You Live In $address";
+  return $line_one . $line_two;
+}
+
+echo get_data(address: "Cairo");
+echo '<br>';
+echo '<br>';
+#======================================
+//Function Variable Arguments List
+/*
+  Function
+  - Variable Arguments List
+  --- func_num_args() => get number of arguments passed to function
+  --- func_get_arg(index) => get the argument by index
+  --- func_get_args() => showing the arguments passed as array
+
+  Spread Syntax In JS => (...$arg)  
+    it enables the user to pass any number of arguments to the function
+    --then i can use "...$arg" as the array of arguments 
+
+  --I can also use spreed syntax on an array to spreed its elements 
+    meaning that i can pass any array of arguments to the function
+    has many arguments  
+*/
+
+function calculate(...$nums)
+{
+  // echo "Number Of Arguments: " . func_num_args() . "<br>";
+  // echo "Argument Index Number 3 Is " . func_get_arg(3) . "<br>";
+  // print_r(func_get_args());
+  // $result = 0;
+  // foreach (func_get_args() as $arg) :
+  //   $result += $arg;
+  // endforeach;
+  // echo $result;
+  echo "Argument Index Number 3 Is " . $nums[3] . "<br>";
+  print_r($nums);
+  $result = 0;
+  foreach ($nums as $num):
+    $result += $num;
+  endforeach;
+  echo $result;
+}
+
+calculate(10, 20, 50, 30, 40, 50, 100);
+echo '<br>';
+echo '<br>';
+#==========================================================
+//Function Training And Unpacking Arguments
+/*
+  Function
+  - Function Advanced Training
+  -- Unpacking In Arguments
+
+  Search
+  - PHP Variadic Functions
+  - Splat Operator
+*/
+$group_of_skills = ["HTML", "CSS", "JS", "PHP"];
+
+function get_data2($name, $country = "Private", ...$skills)
+{
+  echo "Hello $name Your Country Is $country <br>";
+  foreach ($skills as $skill):
+    echo "-- $skill <br>";
+  endforeach;
+}
+
+// get_data("Osama", "Egypt", ...$group_of_skills);
+get_data2("Osama", "Egypt", ...["HTML", "CSS", "JS", "PHP"]);
+echo '<br>';
+echo '<br>';
+#================================================================================================
+//Variable Function And Function Exists
+/*
+  Function
+  - Variable Function
+  --- PHP Allow To Use Variable Like Function
+  --- When You Append Parentheses () To Variable PHP Will Look For Function With That Name
+  - Function Exists
+  --- function_exists("Func Name")
+*/
+
+function someThing($name = "mohsen")
+{
+  return "thats good $name";
+}
+$var_func = "someThing";
+echo $var_func;
+echo '<br>';
+echo $var_func();
+echo '<br>';
+echo someThing("abaas");
+echo '<br>';
+function test()
+{
+  echo "test";
+}
+if (function_exists("test")):
+  test();
+else:
+  echo "function not found";
+endif;
+echo '<br>';
+$func3 = "strlen";
+echo $func3("monasr");
+echo '<br>';
+echo '<br>';
+#================================================================================================
+//Passing Arguments By Reference
+/*
+    Function
+    - Passing Arguments by Reference
+    --- By Default, Function Arguments Are Passed By Value
+    --- If The Value Of The Argument Inside The Function Changed It Will Not Change Outside
+    --- To Change It Outside Pass The Argument By Reference
+
+    - Return Type Declarations
+
+    Search
+    - PHP Strict Mode
+  */
+$num = 15.5;
+function add_5(&$numb): int
+{
+  $numb = $numb + 5;
+  return $numb;
+}
+add_5($num);
+echo $num;
+echo '<br>';
+var_dump(add_5($num)); //integer
+echo '<br>';
+var_dump($num); //Double
+echo '<br>';
+echo '<br>';
+#================================================================================================
+//Anonymous Function
+/*
+  Function
+  - Anonymous Function
+  --- When We Create A Function We Give It A Name So We Can Call It Later With That Name
+  --- Sometimes We Need To Create A Function For Specific Task <= This Is Not Against DRY
+
+  - Variable Inherit From Parent Scope
+  - Variable Inherit By Reference From Parent Scope
+  - Anonymous Function Can Be Passed To A Function
+  - Anonymous Function Can Be Return From A Function
+
+  Search
+  - Closure
+*/
+
+
+// Anonymous Function With Parameter In Variable
+
+$say_good_bay = function ($name = '7msolu7') {
+  return "sayounara $name";
+};
+echo $say_good_bay("Medhat");
+echo '<br>';
+
+// Inherit Variable From Parent Scope
+
+$Hi = "HI";
+$say_Hi = function ($name = '7msolu7') use ($Hi) {
+  return "$Hi $name";
+};
+
+echo $say_Hi("Medhat");
+echo '<br>';
+
+
+// Pass Anonymous Function To Function => array_map
+
+$nums = [10, 20, 30, 40, 50];
+
+function add_five($item)
+{
+  return $item + 5;
+}
+
+$nums_after_adding_five = array_map("add_five", $nums);
+
+echo '<pre>';
+print_r($nums_after_adding_five);
+echo '</pre>';
+
+$nums_after_adding_ten = array_map(function ($item) {return $item + 10; }, $nums);
+
+echo '<pre>';
+print_r($nums_after_adding_ten);
+echo '</pre>';
+echo '<br>';
+echo '<br>';
+#================================================================================================
+//Arrow Function
+  /*
+    Function
+    - Arrow Function
+    --- Short Syntax For Anonymous Function
+    --- Automatic Use Variables From Parent Scope
+
+    - Syntax
+    --- Function Replaces With fn
+    --- No Need For Curly Braces
+    --- Return Is Omitted
+  */
+
+  // Arrow Function With Parameter In Variable
+
+  $say_good_bay2 = fn ($name = '7msolu7') => "sayounara $name";
+echo $say_good_bay2("Medhat");
+echo '<br>';
+
+
+  // Arrow Inherit Variable From Parent Scope Is Automatic
+
+
+  $Hi2 = "HI";
+$say_Hi2 = fn ($name = '7msolu7') =>"$Hi $name";
+
+echo $say_Hi2("Medhat");
+echo '<br>';
+
+
+  // Pass Arrow Function To Function => array_map
+
+  
+$nums2 = [10, 20, 30, 40, 50];
+
+
+$nums_after_adding_five2 = array_map(fn ($item)=> $item + 5, $nums2);
+
+echo '<pre>';
+print_r($nums_after_adding_five2);
+echo '</pre>';
+
+$nums_after_adding_ten2 = array_map(fn ($item) => $item + 10, $nums2);
+
+echo '<pre>';
+print_r($nums_after_adding_ten2);
+echo '</pre>';
+echo '<br>';
 
 ?>
