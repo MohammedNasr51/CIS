@@ -1,0 +1,83 @@
+1 - Encapsulation   =>    to cover the properties to brotect them from bad initalization or modification
+
+so we use the private access modifier to the properties and use methods to access them.
+
+
+
+2 - Inheritance     =>    to reuse the properties and methods of one class that will be used in multiple classes
+
+**Note : we can Override the jop of method but can not override thr bassed barameters of it.
+
+--Final method cant be overriden.
+
+--Final class can't be inherited.
+
+
+
+3 - Abstract class :    it's made to make clear rules for the classes to forced follow them.
+
+        1- cannot be instantiated [ cant have object ].
+
+        2- Made for other classes to be inherited from [ inherit properties and methods ].
+
+        3- can have methods and properties.
+
+        4- can have abstract methods :
+                    - abstract method cannot have body.
+
+
+
+4 - Polymorphism  :     تعدد الأوجه 
+                        mains that you have many classes that have the same interface but have different functionality.
+
+        1- use Keyword [ interface ] to declare the interface class and then fill it with methods that dosenot have body.
+
+        2- to use this interface in classes we use Keyword [ implements ].
+
+        3- we must use all the methods in all classes that have the same interface.
+
+
+5 - Constructor   :  works at the moment that the object is created and can be injected with parameters at the same time.
+
+        1- public function __construct("can have parameters"){ do somthing with or whithout the parameters}
+            this is the declaration of the Constructor.
+
+        2- it can be inherited from the super class.
+
+
+
+6 - Distructor : works at the moment that the object ends his work [distroyed].      
+
+
+
+7 - __call     : works when you call a nonaccessible method or not found this method.
+
+        1- it accepts 2 parameters: the method name and the arguments.
+
+
+
+8 - copy and clone the object : 
+        
+        1- the copy of the object that both the copy and the main refere to each other and any change on any of them affect the ather.
+
+        2- the clone of the object takes a copy not refere to the same copy as above.
+
+
+
+9 - Static Keyword : on screenshot 
+
+
+
+10 - Methods Chaining  : when tha methods of one class return [ $this ] Keyword they can be chained together.
+
+
+11 - Trait :   it's like the class but it solves the problem of multiple inheritance 
+
+               and uses the Keyword [ use ] to be inherited from.
+
+               **Note : tha methods inherited from trait is higher priority than that inherited from a class.**
+
+               **Note : traits can use each other and can be called in one line sperated by coma.**
+
+
+12 - Namespaces
