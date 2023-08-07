@@ -80,4 +80,5 @@ so we use the private access modifier to the properties and use methods to acces
                **Note : traits can use each other and can be called in one line sperated by coma.**
 
 
-12 - Namespaces
+12 - Namespaces : enables you to use the same name of a class for many classes and use all of them in the same file.
+
