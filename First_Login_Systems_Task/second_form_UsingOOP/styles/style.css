@@ -1,0 +1,36 @@
+body {
+    padding: 50px;
+    background: url('./back_ground.jpg') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.forms {
+    color: rgb(19, 20, 20);
+    width: fit-content;
+    
+}
+
+.container {
+
+    margin: 0 auto;
+    padding: 50px;
+    box-shadow: rgba(100, 100, 111, 0.2);
+    box-sizing: calc(20*30);
+    width: fit-content;
+}
+
+.form-group {
+    margin-bottom: 30px;
+    width: fit-content;
+}
+
+.dash {
+    color: aliceblue;
+    width: fit-content;
+
+}
+#pforms{
+    color: black;
+}
