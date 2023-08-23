@@ -467,23 +467,23 @@ echo "<br>";
 #========================================
 //Comparison operators 
 // <=>  => Spaceship [is less returns (-1) , if greeter returns (+1) , if equal returns (0)]
-var_dump(100<=>200);
+var_dump(100 <=> 200);
 echo "<br>";
-var_dump(100<=>50);
+var_dump(100 <=> 50);
 echo "<br>";
-var_dump(100<=>100);
+var_dump(100 <=> 100);
 echo "<br>";
 echo "<br>";
 #==========================================================================
 //Increment and Decriment operator
-$first=0;
+$first = 0;
 echo $first;
 echo '<br>';
-echo $first++ ;
+echo $first++;
 echo '<br>';
 echo $first;
 echo '<br>';
-echo ++$first; 
+echo ++$first;
 echo '<br>';
 echo $first;
 echo '<br>';
@@ -504,18 +504,18 @@ xor => Xor => One Is True But Not Both
 !   => Not => Not True
 */
 #===========================================================================
-  /*
-    Operators
-    - Used To Perform Operations On Values.
+/*
+  Operators
+  - Used To Perform Operations On Values.
 
-    String Operators
-    - Concatenate Strings
+  String Operators
+  - Concatenate Strings
 
-    .   => concatenate variables with text 
-    .=  => concatenates the variable's value with the value after operator
-  */
+  .   => concatenate variables with text 
+  .=  => concatenates the variable's value with the value after operator
+*/
 
-  #==========================================================================
+#==========================================================================
 //array operators 
 /*
   Operators
@@ -682,8 +682,8 @@ The only difference between them that dowhile will execute the first iteration t
 
 #==============================================================
 //For loop
-for($i=0 ; $i<5 ; $i++ ):
-  for($j=0;$j<$i;$j++):
+for ($i = 0; $i < 5; $i++):
+  for ($j = 0; $j < $i; $j++):
     echo '* ';
   endfor;
   echo '<br>';
@@ -722,7 +722,7 @@ echo '<pre>';
 print_r($countries_with_discount);
 echo '</pre>';
 
-foreach ($countries_with_discount as $country => $discount) :
+foreach ($countries_with_discount as $country => $discount):
 
   echo "Country Name Is $country And Discount Is $discount <br>";
 
@@ -744,15 +744,15 @@ continue => skips the current iteration
     Include 
     Require
   */
-  $f = 20;
-  # require("test.text"); // gives me Fatal error and skip all other script because the file is required
+$f = 20;
+# require("test.text"); // gives me Fatal error and skip all other script because the file is required
 
-  include_once("test.php"); // $a = 10;  gives me warning but continue the script 
-                            // include_once => chick that if i includes this file befor it dosen't inclede it again 
+include_once("test.php"); // $a = 10;  gives me warning but continue the script 
+// include_once => chick that if i includes this file befor it dosen't inclede it again 
 
-  echo $f . '<br>';
+echo $f . '<br>';
 
-  echo "Continue";
+echo "Continue";
 echo '<br>';
 echo '<br>';
 #===============================================================  
@@ -970,7 +970,8 @@ echo '<pre>';
 print_r($nums_after_adding_five);
 echo '</pre>';
 
-$nums_after_adding_ten = array_map(function ($item) {return $item + 10; }, $nums);
+$nums_after_adding_ten = array_map(function ($item) {
+  return $item + 10; }, $nums);
 
 echo '<pre>';
 print_r($nums_after_adding_ten);
@@ -979,48 +980,48 @@ echo '<br>';
 echo '<br>';
 #================================================================================================
 //Arrow Function
-  /*
-    Function
-    - Arrow Function
-    --- Short Syntax For Anonymous Function
-    --- Automatic Use Variables From Parent Scope
+/*
+  Function
+  - Arrow Function
+  --- Short Syntax For Anonymous Function
+  --- Automatic Use Variables From Parent Scope
 
-    - Syntax
-    --- Function Replaces With fn
-    --- No Need For Curly Braces
-    --- Return Is Omitted
-  */
+  - Syntax
+  --- Function Replaces With fn
+  --- No Need For Curly Braces
+  --- Return Is Omitted
+*/
 
-  // Arrow Function With Parameter In Variable
+// Arrow Function With Parameter In Variable
 
-  $say_good_bay2 = fn ($name = '7msolu7') => "sayounara $name";
+$say_good_bay2 = fn($name = '7msolu7') => "sayounara $name";
 echo $say_good_bay2("Medhat");
 echo '<br>';
 
 
-  // Arrow Inherit Variable From Parent Scope Is Automatic
+// Arrow Inherit Variable From Parent Scope Is Automatic
 
 
-  $Hi2 = "HI";
-$say_Hi2 = fn ($name = '7msolu7') =>"$Hi $name";
+$Hi2 = "HI";
+$say_Hi2 = fn($name = '7msolu7') => "$Hi $name";
 
 echo $say_Hi2("Medhat");
 echo '<br>';
 
 
-  // Pass Arrow Function To Function => array_map
+// Pass Arrow Function To Function => array_map
 
-  
+
 $nums2 = [10, 20, 30, 40, 50];
 
 
-$nums_after_adding_five2 = array_map(fn ($item)=> $item + 5, $nums2);
+$nums_after_adding_five2 = array_map(fn($item) => $item + 5, $nums2);
 
 echo '<pre>';
 print_r($nums_after_adding_five2);
 echo '</pre>';
 
-$nums_after_adding_ten2 = array_map(fn ($item) => $item + 10, $nums2);
+$nums_after_adding_ten2 = array_map(fn($item) => $item + 10, $nums2);
 
 echo '<pre>';
 print_r($nums_after_adding_ten2);
@@ -1338,5 +1339,117 @@ print_r(substr_replace(["OneTwo", "ThreeFour"], 1, 0));
 echo "</pre>";
 echo '<br>';
 echo '<br>';
+
+?>
+
+<?PHP
+
+#some new notes fron laracast course 
+
+
+$allBooks = [
+  [
+
+    // In PHP, the correct syntax for array keys is the => character (equals sign followed by greater-than sign).
+
+    'title' => 'Lion and the Mouse',
+    'author' => 'Jerry Pinkney',
+    'publishedYear' => 2009,
+    'purchaseUrl' => 'https://en.wikipedia.org/wiki/The_Lion_%26_the_Mouse'
+  ],
+  [
+    'title' => 'Are You My Mother?',
+    'author' => 'P. D. Eastman',
+    'publishedYear' => 1960,
+    'purchaseUrl' => 'https://www.goodreads.com/book/show/197084.Are_You_My_Mother_'
+  ],
+  [
+    'title' => 'Project Hail Mary',
+    'author' => 'Andy Weir',
+    'publishedYear' => 2021,
+    'purchaseUrl' => 'https://www.amazon.com/Project-Hail-Mary-Andy-Weir/dp/0593135202'
+  ],
+  [
+    'title' => 'The Martian',
+    'author' => 'Andy Weir',
+    'publishedYear' => 2011,
+    'purchaseUrl' => 'https://www.amazon.com/Martian-Andy-Weir/dp/0553418025'
+  ],
+];
+
+
+function filterBooks($items, $fn)
+{
+  $filteredItems = [];
+
+  foreach ($items as $item) {
+    if ($fn($item)) {
+      $filteredItems[] = $item;
+    }
+  }
+
+  return $filteredItems;
+}
+;
+
+$filteredBooks = filterBooks($allBooks, function ($book) {
+  return $book['publishedYear'] >= 1950 && $book['publishedYear'] <= 2020;
+});
+?>
+
+<ul>
+  <?php foreach ($filteredBooks as $book): ?>
+    <li>
+      <?= $book['title']; ?>
+      <?= ' ' . 'was published in' . ' ' . $book['publishedYear'] . ' ' . 'and written by' . ' ' . $book['author'] . '.'; ?>
+    </li>
+  <?php endforeach; ?>
+</ul>
+
+<?php 
+//there is an bult in function to do the same thing 
+//called array_filter(array , function have the filteration rules);
+$filteredBooksOtherWay= array_filter($allBooks,fn($book)=>$book['publishedYear'] >= 1950 && $book['publishedYear'] <= 2020);
+
+?>
+
+<?php 
+
+
+/*New notes from jeffry laracast */
+
+
+
+
+//dsn => data source name -> it has all you need to know about the database connection
+
+$dsn="mysql:host=localhost;dbname=ooplogin;port=3307;user=root;password='MohamedNasr2002@'";
+
+
+//we pass this dsn to the instantiate of the PDO connection object;
+
+$pdo = new PDO($dsn);
+
+
+//then we can prepare a query or statement from the database connection
+
+$statment=$pdo -> prepare("SELECT * FROM users");
+
+
+#after that we need to execute the statement 
+
+$statment->execute();
+
+
+/*finally we can fetch all the retrieved data as an associative array 
+  ane use it as i want  
+*/
+
+$usrs= $statment->fetchAll(PDO::FETCH_ASSOC);
+
+foreach($usrs as $user){
+    echo "<li>".$user['fname']."</li>";
+}
+
 
 ?>
