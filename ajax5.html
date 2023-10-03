@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax - 5 - Fetch data From PHP Mysql</title>
+</head>
+
+<body>
+    <button id="button">Get Users</button>
+    <br>
+    <h1>Users</h1>
+    <br>
+    <div id="users"></div>
+
+
+</body>
+
+<script>
+
+    document.getElementById("button").addEventListener('click', LoadUsers, true);
+
+    function LoadUsers() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'users.php', true);
+        xhr.onload = function () {
+            if (this.status == 200) {
+                var users = JSON.parse(this.responseText);
+                output = '';
+                for (var i in users) {
+                    output += '<ul>' +
+                        '<li>ID: ' + users[i].id + '</li>' +
+                        '<li>Name: ' + users[i].name + '</li>' +
+                        '</ul >';
+                }
+                document.getElementById('users').innerHTML = output;
+            }
+
+        }
+        xhr.send();
+    }
+
+
+
+</script>
+
+</html>
