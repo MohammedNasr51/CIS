@@ -23,11 +23,25 @@
         <input type="text" name="name" id="name1">
         <input type="submit" value="Submit">
     </form>
+    <h1>POST FORM</h1>
+
+    <form method="POST" action="process.php">
+        <input type="text" name="name" >
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <h1>AJAX POST FORM</h1>
+
+    <form id="postForm">
+        <input type="text" name="name" id="name2">
+        <input type="submit" value="Submit">
+    </form>
 
 </body>
 <script>
     document.getElementById("button").addEventListener("click", getName, true);
     document.getElementById("getForm").addEventListener("submit", getName, true);
+    document.getElementById("postForm").addEventListener("submit", postName, true);
 
     function getName(e) {
 
@@ -46,6 +60,27 @@
         }
 
         xhr.send();
+    }
+    function postName(e) {
+
+
+
+        e.preventDefault();
+
+        var name = document.getElementById("name2").value;
+        var params = "name=" + name ;
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("POST", 'process.php', true);
+
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xhr.onload = function () {
+            console.log(this.responseText);
+        }
+
+        xhr.send(params);
     }
 
 </script>
